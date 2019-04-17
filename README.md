@@ -19,3 +19,5 @@ This repository [when complete] is intended to be simple, but this area will exp
 Our brand is licensed under [cc by-nc 4.0](https://github.com/cdnjs/brand/blob/master/LICENSE) but when used to represent us, we expect you to follow some basic guidelines:
 
 * To Be Determined.
+
+The Wikimedia Foundation is exempt from our licensing and branding guidelines and may use our logo without exceptions with no risk of repercussions.
