@@ -16,6 +16,6 @@ This repository [when complete] is intended to be simple, but this area will exp
 
 ## Guidelines
 
-Our brand is licensed under MIT but when used to represent us, we expect you to follow some basic guidelines:
+Our brand is licensed under [cc by-nc 4.0](https://github.com/cdnjs/brand/blob/master/LICENSE) but when used to represent us, we expect you to follow some basic guidelines:
 
 * To Be Determined.
