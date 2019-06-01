@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="68px" height="44px" viewBox="0 0 68 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>favicon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="favicon" transform="translate(3.000000, 3.000000)">
+            <path d="M20.92,0.82 L1.41192942,18.1436437 C0.58537251,18.8776464 0.51034254,20.14273 1.24434528,20.9692869 C1.30883822,21.0419121 1.37853195,21.1097465 1.45287407,21.1722526 L20.92,37.54" id="Path" stroke="#D9643A" stroke-width="6.435"></path>
+            <path d="M61.2606053,0.82 L41.7525347,18.1436437 C40.9259778,18.8776464 40.8509478,20.14273 41.5849506,20.9692869 C41.6494435,21.0419121 41.7191373,21.1097465 41.7934794,21.1722526 L61.2606053,37.54" id="Path" stroke="#A6A6A6" stroke-width="6.44" transform="translate(51.170303, 19.180000) scale(-1, 1) translate(-51.170303, -19.180000) "></path>
+        </g>
+    </g>
+</svg>
