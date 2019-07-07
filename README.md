@@ -1,5 +1,5 @@
 <h1 align="center">
-    <a href="https://cdnjs.com"><img src="https://cdn.discordapp.com/attachments/380469243873067012/568155311668461723/Web_Light.png" width="175px" alt="Nothing to see here, folks."></a>
+    <a href="https://cdnjs.com"><img src="https://raw.githubusercontent.com/cdnjs/brand/master/logo/standard/dark-512.png" width="175px" alt="< cdnjs >"></a>
 </h1>
  
 <h3 align="center">The #1 free and open source CDN built to make life easier for developers.</h3>
