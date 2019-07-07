@@ -49,7 +49,7 @@ class Color:
 
 class Colors:
     """
-    Default colors used by the logso
+    Default colors used by the logos
     """
 
     dark: Color = Color(69, 70, 71, 255)  # 454647
@@ -62,14 +62,16 @@ class Logo:
     Custom class to store a final logo render, alongside its size and variant information
     """
 
-    def __init__(self, size: int, logo_variant: LogoVariant, image: Image):
+    def __init__(self, size: int, logo_variant: LogoVariant, bg_color: Color, image: Image):
         """
         :param size: The width/height of the image
         :param logo_variant: The type of the logo
+        :param bg_color: The color of the logo background
         :param image: The final logo render as an Image
         """
         self.size = size
         self.__type = logo_variant
+        self.__color = bg_color
         self.image = image
         self.__invert_dark = False
         self.directory = None
@@ -80,8 +82,15 @@ class Logo:
         Indicates if the file will be saved as a dark mode variant
         :return: bool: Dark file
         """
-        return (self.__type is LogoVariant.dark and not self.__invert_dark) or \
-               (self.__type is LogoVariant.light and self.__invert_dark)
+        if self.__type is LogoVariant.dark and not self.__invert_dark:
+            return True
+        if self.__type is LogoVariant.light and self.__invert_dark:
+            return True
+        if self.__type is LogoVariant.favicon and (self.__color is Colors.dark and not self.__invert_dark):
+            return True
+        if self.__type is LogoVariant.favicon and (self.__color is Colors.light and self.__invert_dark):
+            return True
+        return False
 
     @property
     def light_file(self) -> bool:
@@ -89,8 +98,15 @@ class Logo:
         Indicates if the file will be saved as a light mode variant
         :return: bool: Light file
         """
-        return (self.__type is LogoVariant.light and not self.__invert_dark) or \
-               (self.__type is LogoVariant.dark and self.__invert_dark)
+        if self.__type is LogoVariant.light and not self.__invert_dark:
+            return True
+        if self.__type is LogoVariant.dark and self.__invert_dark:
+            return True
+        if self.__type is LogoVariant.favicon and (self.__color is Colors.light and not self.__invert_dark):
+            return True
+        if self.__type is LogoVariant.favicon and (self.__color is Colors.dark and self.__invert_dark):
+            return True
+        return False
 
     @property
     def filename(self) -> str:
@@ -234,7 +250,7 @@ class ImageGenerator:
             logo = mask
 
         final = self.__overlay_logo(base, logo, logo)
-        return Logo(size, logo_variant, final)
+        return Logo(size, logo_variant, background, final)
 
     def __generate_sizes(self, background: Color, *, logo_variant: LogoVariant = LogoVariant.dark,
                          brackets: bool = True, mono_overlay: Union[None, Color] = None,
@@ -281,6 +297,7 @@ class ImageGenerator:
         template = template.format(directory=directory, table=items)
         with open(directory.rstrip("/") + "/README.md", "w+") as file:
             file.write(template)
+        print("{:,} file{} saved to {}".format(len(logos), "" if len(logos) == 1 else "s", directory))
 
     def generate_standard(self):
         """
@@ -338,6 +355,18 @@ class ImageGenerator:
                                            custom_logo_width_multiplier=0.9))
         self.__save_all(files, "favicon")
 
+    def generate_icon(self):
+        """
+        Generates the "icon" folder of logos
+        > Favicon on light/dark BG
+        """
+        files = []
+        files.extend(self.__generate_sizes(Colors.light, logo_variant=LogoVariant.favicon, brackets=False,
+                                           custom_logo_width_multiplier=0.9))
+        files.extend(self.__generate_sizes(Colors.dark, logo_variant=LogoVariant.favicon, brackets=False,
+                                           custom_logo_width_multiplier=0.9))
+        self.__save_all(files, "icon")
+
     def generate_all(self):
         """
         Generates all the logo folders
@@ -347,6 +376,7 @@ class ImageGenerator:
         self.generate_mono()
         self.generate_simple()
         self.generate_favicon()
+        self.generate_icon()
 
 
 if __name__ == "__main__":
