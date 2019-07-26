@@ -4,7 +4,7 @@
 |---------|--------------------------|
 | [![](About.png)](About.png) | [![](About_Sponsor_Hover.png)](About_Sponsor_Hover.png) |
 
-## Who are we?
+## Who are we
 
 This is the most important part of this page.
 This describes the orgs goals, hook content to engage people, and provides needed/wanted technical information.
