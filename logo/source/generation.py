@@ -7,6 +7,8 @@ import os
 from enum import Enum
 from io import BytesIO
 from typing import Tuple, List, Dict, Union
+from glob import glob
+from re import match
 
 from PIL import Image
 from cairosvg import svg2png
@@ -292,12 +294,33 @@ class ImageGenerator:
             "[{}](https://github.com/cdnjs/brand/blob/master/logo/{})".format(f[0].filename, f[1])
         ) for f in items]
         items = "\n".join(items)
-        with open("source/README.md") as file:
+        with open("source/README.type.md") as file:
             template = file.read()
-        template = template.format(directory=directory, table=items)
+        template = template.format(directory=directory.title(), table=items)
         with open(directory.rstrip("/") + "/README.md", "w+") as file:
             file.write(template)
         print("{:,} file{} saved to {}".format(len(logos), "" if len(logos) == 1 else "s", directory))
+
+    @staticmethod
+    def create_main_readme():
+        items = []
+        dirs = sorted([f for f in os.listdir(".") if not f.startswith(".") and f != "source" and os.path.isdir(f)])
+        for directory in dirs:
+            files = [[f, match(r"(.+?)/(.+?)-(\d+?).png", f).groups()] for f in glob("{}/*.png".format(directory))]
+            if not files:
+                print("Skipping {}, no files found".format(directory))
+                continue
+            items.append(sorted(files, key=lambda x: (int(x[1][2]), x[1][1]), reverse=True)[0])
+        items = ["| {} | {} |".format(
+            "<img src='https://github.com/cdnjs/brand/blob/master/logo/{}?raw=true' width='64' alt=''/>".format(f[0]),
+            "[{0}](https://github.com/cdnjs/brand/blob/master/logo/{0})".format(f[1][0])
+        ) for f in items]
+        with open("source/README.main.md") as file:
+            template = file.read()
+        template = template.format(table="\n".join(items))
+        with open("README.md", "w+") as file:
+            file.write(template)
+        print("Generated new master readme with {:,} type{}".format(len(items), "" if len(items) == 1 else "s"))
 
     def generate_standard(self):
         """
@@ -383,3 +406,4 @@ if __name__ == "__main__":
     generator = ImageGenerator()
     generator.set_working_directory()
     generator.generate_all()
+    generator.create_main_readme()
