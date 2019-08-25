@@ -12,7 +12,9 @@ Welcome to the branding repository for the [cdnjs org](https://github.com/cdnjs)
 
 ## Navigation
 
-This repository [when complete] is intended to be simple, but this area will explain how to navigate it.
+ - [cdnjs Logos](logo)
+ - [cdnjs Color Palette](palette)
+ - [cdnjs Website Design](website)
 
 ## Guidelines
 
