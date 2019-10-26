@@ -20,6 +20,6 @@ Welcome to the branding repository for the [cdnjs org](https://github.com/cdnjs)
 
 Our brand is licensed under [cc by-nc 4.0](https://github.com/cdnjs/brand/blob/master/LICENSE) but when used to represent us, we expect you to follow some basic guidelines:
 
-* To Be Determined.
+ - To be determined.
 
 The Wikimedia Foundation is exempt from our licensing and branding guidelines and may use our logo without exceptions with no risk of repercussions.
