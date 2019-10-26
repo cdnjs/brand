@@ -17,4 +17,4 @@
 | [Libraries page](Libraries) | <img src="https://github.com/cdnjs/brand/blob/master/website/Libraries/Libraries.png?raw=true" width="512" alt=""/> |
 | [Library page](Library) | <img src="https://github.com/cdnjs/brand/blob/master/website/Library/Library_redux_Has_Tutorials.png?raw=true" width="512" alt=""/> |
 | [Status page](Status) | <img src="https://github.com/cdnjs/brand/blob/master/website/Status/Status.png?raw=true" width="512" alt=""/> |
-| [Coming Soon page](Coming Soon) | <img src="https://github.com/cdnjs/brand/blob/master/website/Coming Soon/Coming_Soon.png?raw=true" width="512" alt=""/> |
+| [Coming Soon page](Coming%20Soon) | <img src="https://github.com/cdnjs/brand/blob/master/website/Coming Soon/Coming_Soon.png?raw=true" width="512" alt=""/> |
