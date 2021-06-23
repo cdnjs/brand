@@ -6,7 +6,7 @@
 
 ---
 
-[Back to parent directory](..)
+[Back to parent directory](https://github.com/cdnjs/brand)
 
 ## Website Design
 
